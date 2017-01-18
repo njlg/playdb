@@ -10,30 +10,30 @@ creating and maintaining a database connection.
 1. Add `"com.github.njlg" %% "playdb" % "0.1"` as a `libraryDependencies`
 2. Configure each database configuration to have `hikaricp.initializationFailFast = false`.
    In your `application.conf` change this:
-```
-db {
-  api {
-    driver: org.mariadb.jdbc.Driver
-    url: "jdbc:mysql://mysql.host.com/common"
-    username: "username"
-    password: "p4ssw0rd"
-  }
-}
-```
-  To this:
-```
+  ```
   db {
     api {
       driver: org.mariadb.jdbc.Driver
       url: "jdbc:mysql://mysql.host.com/common"
       username: "username"
       password: "p4ssw0rd"
-      hikaricp: {
-        initializationFailFast: false
-      }
     }
   }
-```
+  ```
+  To this:
+  ```
+    db {
+      api {
+        driver: org.mariadb.jdbc.Driver
+        url: "jdbc:mysql://mysql.host.com/common"
+        username: "username"
+        password: "p4ssw0rd"
+        hikaricp: {
+          initializationFailFast: false
+        }
+      }
+    }
+  ```
 
 3. Disable the default Play driver &amp; enable this one.
   ```
